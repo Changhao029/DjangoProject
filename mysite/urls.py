@@ -23,5 +23,10 @@ urlpatterns = [
     re_path(r'^index/$', views.IndexView.as_view()),
     re_path(r'^drf/info/$', views.DrfInfoView.as_view()),
     re_path(r'^drf/category/$', views.DrfCateView.as_view()),
-    re_path(r'^drf/category/(?P<id>\d+)/$', views.DrfCateView.as_view())
+    re_path(r'^drf/category/(?P<id>\d+)/$', views.DrfCateView.as_view()),
+
+    re_path(r'^drf/new_category/$', views.NewCategoryView.as_view()),
+    re_path(r'^drf/new_category/(?P<id>\d+)/$', views.NewCategoryView.as_view()),
+
+    re_path(r'^drf/article/$', views.ArticleView.as_view())
 ]
