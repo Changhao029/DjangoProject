@@ -12,9 +12,9 @@ class NewCategorySerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    category_name = serializers.CharField(source='category.title')
+    category_name = serializers.CharField(source='category.title', required=False)
     category_method = serializers.SerializerMethodField()
-    status_txt = serializers.CharField(source='get_status_display')
+    status_txt = serializers.CharField(source='get_status_display', required=False)
     status_method = serializers.SerializerMethodField()
     class Meta:
         model = models.Article

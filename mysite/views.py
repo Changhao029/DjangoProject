@@ -128,6 +128,14 @@ class ArticleView(APIView):
         ser = ArticleSerializer(instance=queryset, many=True)
         return Response(ser.data)
 
+    def post(self, request, *args, **kwargs):
+        ser = ArticleSerializer(data=request.data)
+        if ser.is_valid():
+            ser.save()
+            return Response(ser.data)
+        return Response(ser.errors)
+
+
 
 class DrfInfoView(APIView):
     def post(self, request, *args, **kwargs):

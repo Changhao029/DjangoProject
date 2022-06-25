@@ -21,3 +21,8 @@ class Article(models.Model):
     content = models.TextField(verbose_name='content')
     category = models.ForeignKey(verbose_name='category', to='Category', on_delete=models.CASCADE)
     status = models.IntegerField(verbose_name='status', choices=status_choices, default=1)
+    tag = models.ManyToManyField(verbose_name='tag', to='Tag', null=True, blank=True)
+
+
+class Tag(models.Model):
+    title = models.CharField(verbose_name='tag', max_length=32)
